@@ -1,8 +1,6 @@
-
 import { useState } from "react";
 
 function Form() {
-
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [project, setProject] = useState("");
@@ -12,13 +10,10 @@ function Form() {
   function handleSubmit(e) {
     e.preventDefault();
 
-    if (name === "" || email === "" || project === "") {
+    if (!name || !email || !project) {
       alert("Please fill all required fields");
       return;
     }
-
-    alert("Your commission request has been submitted!");
-
     setName("");
     setEmail("");
     setProject("");
@@ -27,47 +22,44 @@ function Form() {
   }
 
   return (
-    <section className="section-padding" id="contact">
+    <section className="py-5 bg-light" id="contact">
       <div className="container">
-
         <div className="row bg-white">
-
           {/* Left Side */}
-          <div className="col-md-5 p-4">
+          <div className="col-md-5 p-4 bg-light justify-content-between">
+            <div>
+              <span className="text-primary">NEW PROJECT PROPOSAL</span>
+              <h2 className="fw-bold mt-2 mb-3">
+                Initiate Architectural Commission
+              </h2>
+              <p className="text-muted">
+                Our studio welcomes a curated selection of ambitious projects
+                seeking regenerative, high-performance architectural solutions.
+              </p>
 
-            <span className="small-title">NEW PROJECT PROPOSAL</span>
-
-            <h2>Initiate Architectural Commission</h2>
-
-            <p>
-              Our studio welcomes a curated selection of
-              ambitious projects seeking regenerative,
-              high-performance architectural solutions.
-            </p>
-
-            <ul>
-              <li>Atelier Zurich & Tokyo</li>
-              <li>Review Schedule</li>
-              <li>Confidentiality Guaranteed</li>
-            </ul>
-
-            <div className="confidential">
-              <strong>(~) Confidentiality Guarantee</strong>
-              <p>Your project information remains private.</p>
+              <ul>
+                <li className="mb-2">Atelier Zurich & Tokyo</li>
+                <li className="mb-2">Review Schedule</li>
+                <li className="mb-2">Confidentiality Guaranteed</li>
+              </ul>
             </div>
 
+            <div className="p-3 bg-white">
+              <strong>(~) Confidentiality Guarantee</strong>
+              <p className="text-muted mb-0 small">
+                Your project information remains private.
+              </p>
+            </div>
           </div>
 
           {/* Right Side Form */}
-          <div className="col-md-7 p-4">
-
-            <form onSubmit={handleSubmit}>
-
-              <div className="form-row">
-
-                <div className="form-group">
-                  <label><b>Principal Contact Name</b></label>
-
+          <div className="col-md-7 p-4 p-md-5">
+            <form>
+              <div className="row g-3">
+                <div className="col-md-6">
+                  <label className="form-label fw-bold">
+                    Principal Contact Name *
+                  </label>
                   <input
                     type="text"
                     className="form-control"
@@ -77,9 +69,10 @@ function Form() {
                   />
                 </div>
 
-                <div className="form-group">
-                  <label><b>Studio / Institutional Email</b></label>
-
+                <div className="col-md-6">
+                  <label className="form-label fw-bold">
+                    Studio / Institutional Email *
+                  </label>
                   <input
                     type="email"
                     className="form-control"
@@ -88,12 +81,10 @@ function Form() {
                     onChange={(e) => setEmail(e.target.value)}
                   />
                 </div>
-
               </div>
 
-              <div className="form-group mt-3">
-                <label><b>Project Typology</b></label>
-
+              <div className="mt-3">
+                <label className="form-label fw-bold">Project Typology</label>
                 <select
                   className="form-select"
                   value={project}
@@ -106,93 +97,66 @@ function Form() {
                 </select>
               </div>
 
-              <div className="form-group mt-3">
-                <label><b>Estimated Capital Allocation (USD)</b></label>
-
-                <div className="budget-options">
-
-                  <label>
-                    <input
-                      type="radio"
-                      name="budget"
-                      value="$5M-$15M"
-                      checked={budget === "$5M-$15M"}
-                      onChange={(e) => setBudget(e.target.value)}
-                    />
-                    $5M-$15M
-                  </label>
-
-                  <label>
-                    <input
-                      type="radio"
-                      name="budget"
-                      value="$15M-$50M"
-                      checked={budget === "$15M-$50M"}
-                      onChange={(e) => setBudget(e.target.value)}
-                    />
-                    $15M-$50M
-                  </label>
-
-                  <label>
-                    <input
-                      type="radio"
-                      name="budget"
-                      value="$50M+"
-                      checked={budget === "$50M+"}
-                      onChange={(e) => setBudget(e.target.value)}
-                    />
-                    $50M+
-                  </label>
-
+              <div className="mt-3">
+                <label className="form-label fw-bold d-block">
+                  Estimated Capital Allocation (USD)
+                </label>
+                <div className="d-flex gap-4 flex-wrap">
+                  {["$5M-$15M", "$15M-$50M", "$50M+"].map((b) => (
+                    <label key={b} className="form-check-label">
+                      <input
+                        type="radio"
+                        name="budget"
+                        value={b}
+                        checked={budget === b}
+                        onChange={(e) => setBudget(e.target.value)}
+                        className="form-check-input"
+                      />
+                      {b}
+                    </label>
+                  ))}
                 </div>
               </div>
 
-              <div className="form-group mt-3">
-                <label><b>Target Certifications & Standards</b></label>
-
-                <div className="cert-options">
-                  <label><input type="checkbox" /> LEED Platinum</label>
-                  <label><input type="checkbox" /> BREEAM</label>
-                  <label><input type="checkbox" /> Passive</label>
-                  <label><input type="checkbox" /> Living Challenge</label>
+              <div className="mt-3">
+                <label className="form-label fw-bold">
+                  Target Certifications & Standards
+                </label>
+                <div className="d-flex gap-3 flex-wrap">
+                  {[
+                    "LEED Platinum",
+                    "BREEAM",
+                    "Passive",
+                    "Living Challenge",
+                  ].map((cert) => (
+                    <label key={cert} className="form-check-label">
+                      <input type="checkbox" className="form-check-input" />
+                      {cert}
+                    </label>
+                  ))}
                 </div>
               </div>
 
-              <div className="form-group mt-3">
-                <label><b>Site Location & Project Details</b></label>
-
+              <div className="mt-3">
+                <label className="form-label fw-bold">
+                  Site Location & Project Details
+                </label>
                 <textarea
                   className="form-control"
-                  rows="4"
+                  rows="3"
                   placeholder="Describe the project location and requirements..."
                   value={details}
                   onChange={(e) => setDetails(e.target.value)}
                 ></textarea>
               </div>
 
-              <div className="form-actions mt-3">
-
-                <button type="reset" className="clear-btn btn-secondary"
-                  onClick={() => {
-                    setName("");
-                    setEmail("");
-                    setProject("");
-                    setBudget("");
-                    setDetails("");
-                  }}
-                >
-                  Clear Form
-                </button>
-
+              <div className="mt-4 d-flex justify-content-end gap-3 align-items-center">
                 <button type="submit" className="btn btn-primary">
-                  Submit Architectural RFP →
+                  Submit Architectural RFP
                 </button>
-
               </div>
-
             </form>
           </div>
-
         </div>
       </div>
     </section>
