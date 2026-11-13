@@ -3,7 +3,7 @@ function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg bg-white ">
       <a className="navbar-brand fw-bold" href="#home">
-        AegisCore.
+        AegisCore
       </a>
 
       <button
