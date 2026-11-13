@@ -1,4 +1,3 @@
-
 import Card from "../components/Card";
 import SectionTitle from "../components/SectionTitle";
 
@@ -6,17 +5,15 @@ function Capabilities() {
   return (
     <section className="section-padding" id="capabilities">
       <div className="container">
-
         <SectionTitle
           subtitle="DESIGN-DRIVEN INNOVATION"
           title="Spatial Capabilities"
         />
 
         <div className="row g-4">
-
           <div className="col-md-4">
             <Card
-            icon="⌘"
+              icon="⌘"
               label="BIO-SPATIAL SYSTEMS"
               title="Biophilic Commercial Spaces"
               description="Synthesizing indigenous microclimates with
@@ -29,8 +26,7 @@ function Capabilities() {
 
           <div className="col-md-4">
             <Card
-                        icon="⌘"
-
+              icon="⌘"
               label="ALGORITHMIC ENVELOPES"
               title="Computational Facade Engineering"
               description=" Parametric solar shading systems dynamically
@@ -44,8 +40,7 @@ function Capabilities() {
 
           <div className="col-md-4">
             <Card
-                        icon="⌘"
-
+              icon="⌘"
               label="CIRCULAR ADAPTABILITY"
               title="Adaptive Heritage Reuse"
               description="Structural rehabilitation of century-old
@@ -54,7 +49,6 @@ function Capabilities() {
               buttonText="Explore Typology→"
             />
           </div>
-
         </div>
       </div>
     </section>

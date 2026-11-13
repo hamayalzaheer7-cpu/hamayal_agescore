@@ -1,6 +1,6 @@
 /* Main button */
 .main-btn {
-  background-color: #5041db;
+  background-color: blue;
   color: white;
   border: none;
   padding: 10px 20px;
@@ -8,7 +8,7 @@
 }
 
 .main-btn:hover {
-  background-color: #3326ae;
+  background-color: #8a81dc;
   color: white;
 }
 
@@ -24,11 +24,11 @@
 }
 
 .hero h1 {
-  color: #202033;
+  color: rgb(22, 22, 24);
 }
 
 .hero h3 {
-  color: #4030c9;
+  color: blue;
   font-weight: bold;
 }
 
@@ -41,8 +41,6 @@
 .custom-card {
   border: none;
   border-radius: 10px;
-  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.07);
-  transition: 0.3s;
 }
 
 .custom-card:hover {
@@ -55,7 +53,7 @@
 }
 
 .card-link {
-  color: #4030c9;
+  color: blue;
   text-decoration: none;
   font-weight: bold;
 }

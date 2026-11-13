@@ -1,3 +1,4 @@
+import imageC from "../images/c.jpg";
 
 function Hero() {
   return (
@@ -48,7 +49,7 @@ function Hero() {
 
           <div className="col-md-6">
             <img
-              src="......................................"
+              src={imageC}
               className="hero-img"
               alt="Sustainable Building"
             />

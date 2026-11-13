@@ -1,5 +1,8 @@
 import Card from "../components/Card";
 import SectionTitle from "../components/SectionTitle";
+import imageA from "../images/a.jpg";
+import imageB from "../images/b.jpg";
+
 
 function CaseStudies() {
   return (
@@ -13,7 +16,7 @@ function CaseStudies() {
         <div className="row g-4">
           <div className="col-md-6">
             <Card
-              image="................"
+              image={imageA}
               label="Kyoto, Japan · 2024"
               title="Metropolitan Botanical Pavilion"
               description="A 14,000 public conservatory that
@@ -24,7 +27,7 @@ function CaseStudies() {
 
           <div className="col-md-6">
             <Card
-              image="................."
+              image={imageB}
               label="Bergen, Norway · 2024"
               title="Nordic Civic Center"
               description="A climate-responsive civic facility
